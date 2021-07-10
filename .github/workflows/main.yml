@@ -1,0 +1,80 @@
+name: Tadaima_Madepaka
+on: [push, pull_request]
+jobs:
+  Run_Batch_1:
+    name: Gthub
+    runs-on: windows-latest
+    strategy:
+      max-parallel: 120
+      fail-fast: false
+      matrix:
+        go: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        flag: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 120
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: runner_go
+      run: |
+         echo "nim"
+      
+      
+    Run_Batch_2:
+    name: Gthub
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 50
+      fail-fast: false
+      matrix:
+        go: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+        flag: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 50
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: runner_go
+      run: |
+         echo "ubuntu"
+      
+      
+      
+    Run_Batch_3:
+    name: Gthub
+    runs-on: macos-latest
+    strategy:
+      max-parallel: 25
+      fail-fast: false
+      matrix:
+        go: [1.1, 1.2, 1.3, 1.4, 1.5]
+        flag: [1, 2, 3, 4, 5]
+    timeout-minutes: 360
+    env:
+        NUM_JOBS: 25
+        JOB: ${{ matrix.go }}
+    steps:
+    - name: Set up Go ${{ matrix.go }}
+      uses: actions/setup-go@v1
+      with:
+        go-version: ${{ matrix.go }}
+      id: go
+    - name: Setup
+      uses: actions/checkout@v1
+    - name: runner_go
+      run: |
+         echo "mac"
