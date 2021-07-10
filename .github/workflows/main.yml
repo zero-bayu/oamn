@@ -2,7 +2,7 @@ name: Tadaima_Madepaka
 on: [push, pull_request]
 jobs:
   Run_Batch_1:
-    name: Gthub-2
+    name: Gthub
     runs-on: windows-latest
     strategy:
       max-parallel: 120
@@ -28,7 +28,6 @@ jobs:
       
       
     Run_Batch_2:
-    name: Gthub-1
     runs-on: ubuntu-latest
     strategy:
       max-parallel: 50
@@ -55,7 +54,6 @@ jobs:
       
       
     Run_Batch_3:
-    name: Gthub-3
     runs-on: macos-latest
     strategy:
       max-parallel: 25
